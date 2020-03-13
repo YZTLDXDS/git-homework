@@ -152,3 +152,4 @@ XS_B.grid_configure(column=1,row=4,columnspan=1,rowspan=1,pady='2m')
 WJXR_B.grid_configure(column=2,row=4,columnspan=1,rowspan=1,pady='2m')
 GJC_B.grid_configure(column=2,row=6,columnspan=1,rowspan=1,pady='2m')
 top1.mainloop()
+
