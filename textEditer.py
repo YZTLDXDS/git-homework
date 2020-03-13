@@ -49,4 +49,86 @@ def wenjianbucunzai():#假设文件不存在
         OK1.pack()
         top2.mainloop()
 from tkinter import *
-
+def XS():
+    LJ = E1.get()
+    import os
+    if not os.path.isfile(LJ):
+        wenjianbucunzai()
+    else:
+        top3=Tk()
+        top3.title(LJ[:-4])
+        top3.geometry("600x600")
+        text = Text(top3, width=300, height=590,bd=5)
+        with open(LJ) as file_object:
+            contents=file_object.read()
+        text.pack()
+        text.insert(INSERT,contents)
+        top3.mainloop()
+def CSTJ():
+    LJ = E1.get()
+    import os
+    if not os.path.isfile(LJ):
+        wenjianbucunzai()
+    else:
+        a=wbcjg(LJ)
+        num=len(a)
+        top4=Tk()
+        top4.title('词数统计')
+        top4.geometry('200x100')
+        L4 = Label(top4, text='本文共有【{}】词'.format(num))
+        L4.pack(pady='11m')
+def CPTJ():
+    LJ = E1.get()
+    import os
+    if not os.path.isfile(LJ):
+        wenjianbucunzai()
+    else:
+        a=wbcjg(LJ)
+        b=wbcbcl(a)
+        c=cptj(b)
+        c.plot(6, cumulative=False)
+def WJXR():
+    top5=Tk()
+    top5.title('文件写入')
+    top5.geometry('600x650')
+    LB5=Label(top5,text='【请输入纯英文文章（可用英文标点）】')
+    LB5.pack(pady='2m')
+    texT=Text(top5,width=100, height=40,bd=5)
+    def XIERU():
+        Content=texT.get('1.0','end')
+        top6=Tk()
+        top6.title('文件名')
+        top6.geometry('300x150')
+        lB=Label(top6,text='请输入文件名(以.txt结尾)')
+        E=Entry(top6,bd=5)
+        lB.pack()
+        E.pack()
+        def OK():
+            a=open(E.get(),'w')
+            a.write(Content)
+            a.close()
+            top6.destroy()
+        OK_B=Button(top6,text='OK',command=OK)
+        OK_B.pack()
+        top5.destroy()
+    XIERU_B=Button(top5,text='【写入】',command=XIERU)
+    texT.pack()
+    XIERU_B.pack(pady='2m')
+def gjc():
+    LJ = E1.get()
+    import os
+    if not os.path.isfile(LJ):
+        wenjianbucunzai()
+    else:
+        a = wbcjg(LJ)
+        b = wbcbcl(a)
+        c = cptj(b)
+        d = []
+        for ker in c.most_common():
+            d.append(ker)
+        top7 = Tk()
+        top7.title('关键词')
+        top7.geometry('300x300')
+        T = Text(top7, width=300, height=300, bd=5)
+        T.pack()
+        T.insert(INSERT, '本文的关键词为{}，{}，{}，{}，{}，{}'.format(d[0][0], d[1][0], d[2][0], d[3][0], d[4][0], d[5][0]))
