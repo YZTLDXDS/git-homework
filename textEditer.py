@@ -19,3 +19,21 @@ def cptj(x):#词频统计
     from nltk import FreqDist
     ciping=FreqDist(x)
     return ciping
+def ciyuntu():
+    LJ=E1.get()
+    import os
+    if not os.path.isfile(LJ):
+        wenjianbucunzai()
+    else:
+        from wordcloud import WordCloud
+        import matplotlib.pyplot as plt
+        f = open(LJ).read()
+        wordcloud = WordCloud(
+            background_color="white",  # 设置背景
+            width=1500,  # 设置宽度
+            height=960,  # 设置高度
+            margin=10  # 设置边缘
+        ).generate(f)
+        plt.imshow(wordcloud)
+        plt.axis("off")
+        plt.show()
