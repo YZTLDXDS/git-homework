@@ -15,3 +15,7 @@ def wbcbcl(x):#文本初步处理，去掉停用词，形成列表
         for j in range(n):
             value.remove(i)
     return value
+def cptj(x):#词频统计
+    from nltk import FreqDist
+    ciping=FreqDist(x)
+    return ciping
