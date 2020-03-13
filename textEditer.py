@@ -7,4 +7,11 @@ def wbcjg(x):#文本初加工
     contents=contents.lower()
     contents = list(contents.split())
     return contents
-    
+def wbcbcl(x):#文本初步处理，去掉停用词，形成列表
+    value =x
+    from nltk.corpus import stopwords
+    for i in stopwords.words('english'):
+        n=value.count(i)
+        for j in range(n):
+            value.remove(i)
+    return value
