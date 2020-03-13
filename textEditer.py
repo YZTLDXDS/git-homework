@@ -37,3 +37,16 @@ def ciyuntu():
         plt.imshow(wordcloud)
         plt.axis("off")
         plt.show()
+def wenjianbucunzai():#假设文件不存在
+        top2=Tk()
+        top2.title('文件不存在')
+        top2.geometry("300x200")
+        def tc2():
+            top2.destroy()
+        L2= Label(top2, text='【请输入存在的文件名】')
+        L2.pack(pady='11m')
+        OK1 = Button(top2, text='OK', command=tc2)
+        OK1.pack()
+        top2.mainloop()
+from tkinter import *
+
