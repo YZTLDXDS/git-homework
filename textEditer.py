@@ -131,6 +131,7 @@ def gjc():
         top7.geometry('300x300')
         T = Text(top7, width=300, height=300, bd=5)
         T.pack()
+        T.insert(INSERT, '本文的关键词为{}，{}，{}，{}，{}，{}'.format(d[0][0], d[1][0], d[2][0], d[3][0], d[4][0], d[5][0]))
 top1=Tk()
 top1.title('文本编辑器')
 top1.geometry("290x280")
@@ -151,5 +152,6 @@ XS_B.grid_configure(column=1,row=4,columnspan=1,rowspan=1,pady='2m')
 WJXR_B.grid_configure(column=2,row=4,columnspan=1,rowspan=1,pady='2m')
 GJC_B.grid_configure(column=2,row=6,columnspan=1,rowspan=1,pady='2m')
 top1.mainloop()
-        T.insert(INSERT, '本文的关键词为{}，{}，{}，{}，{}，{}'.format(d[0][0], d[1][0], d[2][0], d[3][0], d[4][0], d[5][0]))
+
+        
 
